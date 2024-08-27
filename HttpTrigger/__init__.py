@@ -2,10 +2,10 @@ import logging
 
 import azure.functions as func
 
-a=1;b=2
+a=1;b=2;e=a+b
 
 def addition(a,b):
-    c=a+b
+    c=a+b+e
     return c
     
 def main(req: func.HttpRequest) -> func.HttpResponse:
@@ -15,7 +15,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     # b = req.params.get('a')
     d = addition(a,b)
     if d:
+        logging.info('its inside the loop')
         return func.HttpResponse(f"Hello, a + b = {d}. This HTTP triggered function executed successfully.")
+        
     else:
         return func.HttpResponse(
              "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
