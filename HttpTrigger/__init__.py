@@ -2,10 +2,10 @@ import logging
 
 import azure.functions as func
 
-a=1;b=2;e=a+b
+a=1;b=2;e=a+b; f=5
 
 def addition(a,b):
-    c=a+b+e
+    c=a+b+e+f
     return c
     
 def main(req: func.HttpRequest) -> func.HttpResponse:
